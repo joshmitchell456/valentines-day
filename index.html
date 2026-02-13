@@ -39,22 +39,33 @@
   <link rel="preload" as="image" href="./images/image6.gif">
   <link rel="preload" as="image" href="./images/image7.gif">
 </head>
-<body class="gradient-background">
+<body class="gradient-background overflow-x-hidden">
   <main class="flex items-center justify-center h-screen">
-    <section class="flex flex-col items-center p-4">
+    <!--
+      The section now has a full width to ensure all of its children (image,
+      text and buttons) scale down with the viewport on mobile. Without
+      w-full the content could exceed the screen when the Yes button grows.
+    -->
+    <section class="flex flex-col items-center p-4 w-full">
       <img
         id="imageDisplay"
         src="./images/image1.gif"
         alt="Cute kitten with flowers"
-        class="rounded-md h-[300px] object-cover"
+        
+        class="rounded-md h-[300px] w-full max-w-sm object-cover"
       />
-      <h1 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">
+      <!--
+        The question text is centred and padded horizontally so that it wraps
+        nicely on small screens without overflowing. The px-4 adds some
+        padding and text-center ensures the line breaks naturally.
+      -->
+      <h1 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4 text-center px-4">
         Miss Darling Jade, will you be my Valentine?
       </h1>
       <div id="responseButtons" class="flex gap-4 pt-5 items-center">
         <button
           id="yesButton"
-          class="bounce inline-flex items-center justify-center whitespace-nowrap rounded-md text-xl font-medium cursor-pointer px-4 py-2 bg-green-500 text-white transition-all duration-300 ease-in-out hover:bg-green-400 min-h-12 min-w-[75px]"
+          class="bounce inline-flex items-center justify-center whitespace-nowrap rounded-md text-xl font-medium cursor-pointer px-4 py-2 bg-green-500 text-white transition-all duration-300 ease-in-out hover:bg-green-400 min-h-12 min-w-[75px] max-w-full"
         >
           Yes
         </button>
